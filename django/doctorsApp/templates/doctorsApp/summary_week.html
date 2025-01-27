@@ -1,0 +1,24 @@
+{% extends "doctorsApp/layouts/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-4">
+
+    {% include "doctorsApp/layouts/form_summary.html" %}
+
+    {% include "doctorsApp/layouts/custom_query.html" %}
+
+    <div class="card">
+        <div class="card-header ">
+            <h3>{% trans 'Cumplimiento del contrato terapéutico por semana'%}</h3>
+            <h4 class="text-muted" >{% trans 'Semana del resumen'%}: {{ date }}</h4>
+        </div>
+        {% include "doctorsApp/layouts/summary_content.html"%}
+    </div>
+    
+    {% include "doctorsApp/layouts/download_form.html" %}
+    {% include "doctorsApp/layouts/incidences.html" %}
+
+</main>
+{% endblock %}

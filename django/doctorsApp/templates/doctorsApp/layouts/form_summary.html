@@ -1,0 +1,61 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<div class="container">
+    
+    {% if error %}
+    <br>
+        <div class="alert alert-secondary" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+    <form action="{% url 'doctorsApp:getSummary' id_patient %}" enctype="multipart/form-data" method="GET">
+        <div class="row">
+            <div class="col12- col-md-auto pt-1" align="center">
+                <h5 title= 'Seleccione un día, semana o mes para consultar los resúmenes correspondientes'>{% trans 'Consultar resúmenes' %}</h5>
+            </div>
+            <div class="col-12 col-md-auto ">
+                {{ form.date|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-auto week-picker">
+                {{ form.week|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-auto month-picker">
+                {{ form.month|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-auto fallback-week">
+                <select class="form-select" id="fallbackWeek" name="week-fallback">
+                    <option disabled selected value> {%trans 'Semana'%}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-auto fallback-month">
+                <select class="form-select" id="fallbackMonth" name="month-fallback">
+                    <option disabled selected value> {%trans 'Mes'%}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-auto  fallback-year mb-3">
+                <select class="form-select" id="fallbackYear" name="year-fallback">
+                    <!--<option disabled selected value> {%trans 'Año'%} </option>-->
+                    <option selected value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div class="col-12 col-md-auto"  align="center">
+                <button type="submit" class="btn btn-primary ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                    {% trans 'Buscar' %}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<script src="{% static 'doctorsApp/js/fallback_input_summary.js' %}"></script>

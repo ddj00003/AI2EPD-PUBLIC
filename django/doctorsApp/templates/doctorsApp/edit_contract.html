@@ -1,0 +1,278 @@
+{% extends "doctorsApp/layouts/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-4">
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    <br>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-header ">
+            <h3> {% trans 'Contrato terapéutico' %}
+            </h3>
+            <h4 class="text-muted" >{% trans 'Fecha de inicio del contrato'%}: {{ date }}</h4>
+        </div>
+        <div class="card-body">
+            <h4 class="card-subtitle mb-4 text-muted">
+                {% trans 'Paciente'%}: {{ patient.name }} {{ patient.surname }}</h4>
+            
+                <div class="card card-body">
+                    <div class="py-4">
+                        <h4>{% trans 'Actividades a realizar'%}</h4>
+                    </div>
+
+                    <form action="{% url 'doctorsApp:saveContract' id_patient %}" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+                        <div >
+                            <h5>{% trans 'Actividad física'%}</h5>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Mañana: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.activity_morning_s|as_crispy_field}}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.activity_morning_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1"> {% trans 'Tarde: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.activity_afternoon_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1"> {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.activity_afternoon_e|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5>{% trans 'Descanso' %}</h5>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.sleep_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2 ">
+                                    {{ form.sleep_e|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5>{% trans 'Autocuidado'%}</h5>
+                            <div class="py-2">
+                                {% trans 'Cepillado'%}
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Cepillado 1: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_1_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_1_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Cepillado 2: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_2_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'  %}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_2_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Cepillado 3: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_3_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.brush_teeth_3_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                {% trans 'Ducha'%}
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.shower_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.shower_e|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h5>{% trans 'Alimentación'%} </h5>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 1: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_1_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_1_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 2: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_2_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%} 
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_2_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 3: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_3_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_3_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 4: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_4_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_4_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 5: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_5_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_5_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Comida 6: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_6_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.eat_6_e|as_crispy_field }}
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div>
+                            <h5>{% trans 'Medicación'%}</h5>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Medicación 1: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_1_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%} 
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_1_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Medicación 2: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_2_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_2_e|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="row justify-content-start">
+                                <div class="col-lg-2 pt-1">{% trans 'Medicación 3: entre las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_3_s|as_crispy_field }}
+                                </div>
+                                <div class="col-lg-1 pt-1">  {% trans 'y las'%}
+                                </div>
+                                <div class="col-lg-2">
+                                    {{ form.medication_3_e|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        
+                        <div class="mx-auto text-center">
+                            <a class="btn btn-secondary" href="{% url 'doctorsApp:infoContract' id_patient %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-x-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                                {% trans 'Cancelar'%}
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="submit" class="btn btn-primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-save" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                                </svg>
+                                {% trans 'Guardar'%}
+                            </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

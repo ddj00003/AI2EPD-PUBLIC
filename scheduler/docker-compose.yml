@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+
+  crontab_app:
+    build:
+      context: ./
+    volumes:
+      - ./django:/App
+    restart: unless-stopped

@@ -1,0 +1,62 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<main class="container py-3">
+
+    {% include "adminManager/layouts/search_date.html"%}
+
+    {% if search_params %}
+
+        <div class="row">
+            <div class="col-12">
+                <h6> {{ search_params }} </h6>
+            </div>
+        </div>
+    
+    {% else %}
+
+        <div class="card card-body">
+            <div class="py-4">
+                <h4 class = "text-center">{% trans 'Realiza una búsqueda para visualizar los datos' %}</h4>
+            </div>
+        </div>
+
+    {% endif %}
+
+    {% if plot_div %}
+
+        {% autoescape off %}
+
+            {{ plot_div }}
+
+        {% endautoescape %}
+        
+    {% endif %}
+
+    {% if plot_div_3 %}
+
+        {% autoescape off %}
+
+            {{ plot_div_3 }}
+
+        {% endautoescape %}
+        
+    {% endif %}
+
+    {% if plot_div_2 %}
+
+        {% for plot in plot_div_2 %}
+
+            {% autoescape off %}
+
+                {{ plot }}
+
+            {% endautoescape %}
+            
+        {% endfor %}
+        
+    {% endif %}
+
+</main>
+{% endblock %}

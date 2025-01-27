@@ -1,0 +1,48 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-5">
+    <div >
+        {% if error %}
+            <div class="alert alert-secondary" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form action="{% url 'adminManager:get_location_house' %}" enctype="multipart/form-data" method="GET">
+            <div  class="row justify-content-end py-2">
+                <div class="col-auto">
+                    {{ form.id_house|as_crispy_field}}
+                </div>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-primary " value={%trans 'Cargar datos'%}>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    {{ plot_div }}
+    {% for k, v in location_data.items %}
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{{k}}</h1>
+        </div>
+        <div class="card-body">
+
+            {% if v %}
+
+                {% autoescape off %}
+                    {{ v }}
+                {% endautoescape %}
+            {% else %}
+                <div class ="text-center"><h5>{%trans 'No hay datos de localización disponibles'%}</h5></div>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</main>
+{% endblock %}

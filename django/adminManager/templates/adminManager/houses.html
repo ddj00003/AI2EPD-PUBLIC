@@ -1,0 +1,123 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-5">
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Viviendas'%}</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>{%trans 'Nombre'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                            <th>{%trans 'Mac'%}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle">
+                        {% for house in houses %}
+                        <tr>
+                            <td>{{ house.id }}</td>
+                            <td>{{ house.name }}</td>
+                            <td>{{ house.description }}</td>
+                            <td>{{ house.mac_node }}</td>
+                            <td><button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#modal_edit{{house.id}}">{%trans 'Editar'%}</button></td>
+                            <div class="modal fade" id="modal_edit{{house.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-fullscreen">
+                                    <form action="{% url 'adminManager:edit_house' house.id %}" enctype="multipart/form-data" method="POST">
+                                        {% csrf_token %}
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{% blocktranslate %}Editar{% endblocktranslate %} {{house.name}} </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {{ house.form.name|as_crispy_field }}
+                                                {{ house.form.mac|as_crispy_field }}
+                                                {{ house.form.description|as_crispy_field }}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{%trans 'Cancelar'%}</button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    {%trans 'Guardar'%}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#modal{{house.id}}">{%trans 'Eliminar'%}</button></td>
+                            <div class="modal fade" id="modal{{house.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{% blocktranslate %}Eliminar{% endblocktranslate %} {{house.name}} </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% blocktranslate %}¿Estás seguro de que quieres eliminar{% endblocktranslate %} {{house.name}}?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">{%trans 'Cancelar'%}</button>
+                                            <a type="button" class="btn btn-danger"
+                                                href="{% url 'adminManager:delete_house' house.id %}">{%trans 'Eliminar'%}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% if message %}
+    <br>
+    <div class="alert alert-secondary" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    <br>
+    {% if status %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endif %}
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Añadir vivienda'%}</h1>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.mac|as_crispy_field }}
+                     </div>
+                </div>
+                {{ form.description|as_crispy_field }}
+                <div class="mx-auto text-center">
+                    <input type="submit" class="btn btn-primary " value={%trans 'Añadir'%}>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

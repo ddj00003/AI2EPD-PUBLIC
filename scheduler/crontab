@@ -1,0 +1,5 @@
+*  *  *  *  *  echo hello >> /App/hello.txt
+*/15  *  *  *  *  /usr/local/bin/python /app/check_devices.py
+30  2  *  *  *  /usr/local/bin/python /app/daily_summary_gen.py
+40  2  1  *  *  /usr/local/bin/python /app/weeks_summary_gen.py
+50  2  *  *  7  /usr/local/bin/python /app/month_summary_gen.py

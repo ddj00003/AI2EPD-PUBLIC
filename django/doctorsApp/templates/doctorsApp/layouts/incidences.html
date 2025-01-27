@@ -1,0 +1,34 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% if incidences %}
+    <br>
+    <div class="card-body">
+        <h4 class="card-subtitle mb-4 text-muted">
+            {%trans 'Incidencias'%}
+        </h4>
+        <div class="card card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>{%trans 'Fecha de inicio'%}</th>
+                            <th>{%trans 'Fecha de fin'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle">
+                        {% for incidence in incidences %}
+                        <tr>
+                            <td>{{incidence.date_start}}</td>
+                            <td>{{incidence.date_end}}</td>
+                            <td>{{incidence.description}}</td>             
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endif %}

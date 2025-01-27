@@ -1,0 +1,125 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<main class="container py-3">
+    
+    {% for k, v in house_data.items %}
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{{k}}</h1>
+        </div>
+        <div class="card-body px-5">
+            {% if v.sensors %}
+                <div class="row pb-2">
+                    <p><h5 class ="fw-bold">{%trans 'Sensores'%}<h5></p>
+                </div>
+            {% endif %}
+            {% for name, data in v.sensors.items %}
+                {% if data %}
+                    {% if data.state %}
+                        <div class= "row card">
+                            <div class="col-12">
+                                <h6 class ="fw-bold">{{name}}</h6>
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                            </div>
+                        </div>
+                        {% elif data.humidity %}
+                            <div class= "row card">
+                                <div class="col-12">
+                                    <h6 class ="fw-bold">{{name}}</h6>
+                                </div>
+                                <div class="col-auto">
+                                    {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                                </div>
+                            </div>
+                        {% elif data.current_consumption %}
+                        <div class= "row card">
+                            <div class="col-12">
+                                <h6 class ="fw-bold">{{name}}</h6>
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div class= "row card">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <br>
+            {% endfor %}
+
+            {% if v.wristbands %}
+            <div class="row pb-2">
+                <p><h5 class ="fw-bold">{%trans 'Pulseras'%}<h5></p>
+            </div>
+            {% endif %}
+
+            {% for name, data in v.wristbands.items %}
+                {% if data %}
+                    <div class= "row card">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class= "row card">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <br>
+            {% endfor %}
+
+            {% if v.anchors %}
+                <div class="row pb-2">
+                    <p><h5 class ="fw-bold">{%trans 'Anclas'%}<h5></p>
+                </div>
+            {% endif %} 
+
+            {% for name, data in v.anchors.items %}
+                {% if data %}
+                <div class= "row card">
+                    <div class="col-12">
+                        <h6 class ="fw-bold">{{name}}</h6>
+                    </div>
+                    <div class="col-auto">
+                        {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                    </div>
+                </div>    
+
+                {% else %}
+                    <div class= "row card">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</main>
+{% endblock %}

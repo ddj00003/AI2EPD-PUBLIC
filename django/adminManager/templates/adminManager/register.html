@@ -1,0 +1,22 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class ="container py-5">
+    <section class="card card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            {% if error %}
+                <div class="alert alert-secondary" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <div class="mx-auto text-center">
+                <input type="submit" class="btn btn-primary " value="Registrarse">
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}

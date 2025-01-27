@@ -1,0 +1,170 @@
+{% extends "doctorsApp/layouts/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-4">
+
+    <div class="row justify-content-end">
+        <div class="col-auto align-self-end">
+            <a type="button" class="btn btn-primary " href="{% url 'doctorsApp:infoContract' id_patient %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+                </svg>
+                {% trans 'Volver' %}
+            </a>
+        </div>
+    </div>
+
+    <br>
+
+    {% for contract in contracts %}
+        <div class="card">
+            <div class="card-header">
+                <div class= "row justify-content-between">
+                    <div class="col-sm-6">
+                        <h3>{% trans 'Contrato terapéutico' %}</h3>
+                    </div>
+                    <div class="col-sm-auto">
+                        <h5 class="text-muted">Id: {{ contract.id }}</h5>
+                    </div>
+                </div>
+                <h4 class="text-muted" >{% trans 'Fecha de inicio del contrato'%}: {{ contract.t_start }}</h4>
+                <h4 class="text-muted" >{% trans 'Fecha de fin del contrato'%}: {{ contract.t_end }}</h4>
+                <h5 class="text-muted" >{% trans 'Modificado por'%}: {{ contract.modified_by }}</h5>
+            </div>
+            <div class="card-body">
+                <h4 class="card-subtitle mb-4 text-muted">
+                    {% trans 'Paciente' %}: {{ patient.name }} {{ patient.surname }}
+                </h4>
+                <div class="card card-body">
+                    <div class="py-4">
+                        <h4>{% trans 'Actividades a realizar'%}</h4>
+                        <p>{% blocktranslate %}El paciente acuerda con los profesionales sanitarios de referencia realizar las actividade descritas a continuación, en la medida de sus posibilidades{% endblocktranslate %}: </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h5>{% trans 'Actividad física'%}</h5>
+                            <p>{% trans 'Caminar al menos 30 minutos por la mañana y 30 minutos por la tarde cada día'%}.</p>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-sm-10"> {% trans 'Mañana: entre las'%}
+                                {% if contract.activity.morning.start != None %} {{contract.activity.morning.start}}  
+                                {%else %} - {% endif %}
+                                {% trans 'y las'%} {% if contract.activity.morning.end != None %} {{contract.activity.morning.end}} 
+                                {%else %} - {% endif %}
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-sm-10"> {% trans 'Tarde: entre las'%}
+                                {% if contract.activity.afternoon.start != None %} {{contract.activity.afternoon.start}} 
+                                {%else %} - {% endif %}
+                                {% trans 'y las'%} {% if contract.activity.afternoon.end != None %} {{contract.activity.afternoon.end}}
+                                {% else %} - {% endif %}
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col-sm-10">
+                            <h5>{% trans 'Descanso'%}</h5>
+                            <p>{% trans 'Dormir al menos 5 horas cada noche'%}.</p>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-sm-10"> {% trans 'Entre las'%}
+                                {% if contract.sleep.start != None %} {{contract.sleep.start}} {% else %} - {% endif %}
+                                {% trans 'y las'%} {% if contract.sleep.end != None %} {{contract.sleep.end}} {% else %} - {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row py-2">
+                        <div class="col-sm-10">
+                            <h5>{% trans 'Autocuidado'%}</h5>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-sm-10">
+                                <h6>{% trans 'Cepillado de dientes'%}</h6>
+                                <p>{% trans 'Al menos 3 veces al día, tras las comidas principales'%}.</p>
+                            </div>
+
+                            {% for name, value in contract.brush_teeth.items %}
+                            <div class="row py-2">
+                                <div class="col-sm-10">{% trans 'Cepillado: entre las'%}
+                                    {% if value.start != None %} {{value.start}} {% else %} - {% endif %}
+                                    {% trans 'y las'%} {% if value.end != None %} {{value.end}} {% else %} - {% endif %}
+                                    {{ index|add:1 }}
+                                </div>
+                            </div>
+        
+                            {% endfor %}
+
+                        </div>
+
+                        <div class="row py-2">
+                            <div class="col-sm-10">
+                                <h6>{% trans 'Ducha diaria'%}</h6>
+                            </div>
+                            <div class="row py-2">
+                                <div class="col-sm-10">
+                                    {% trans 'Entre las'%}
+                                    {% if contract.shower.start != None %} {{contract.shower.start}} {% else %} - {% endif %}
+                                    {% trans 'y las'%} {% if contract.shower.end != None %} {{contract.shower.end}} {% else %} - {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row py-2">
+                        <div class="col-sm-10">
+                            <h5>{% trans 'Alimentación'%}</h5>
+                        </div>
+                        {% for name, value  in contract.eat.items %}
+
+                        <div class="row py-2">
+                            <div class="col-sm-10">{% trans 'Comida: entre las'%}
+                                {% if value.start != None %} {{value.start}} {% else %} - {% endif %}
+                                {% trans 'y las'%} {% if value.end != None %} {{value.end}} {% else %} - {% endif %}
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-sm-10">
+                            <h5>{% trans 'Medicación'%}</h5>
+                        </div>
+                        {% for name, value  in contract.medication.items %}
+
+                        <div class="row py-2">
+                            <div class="col-sm-10">{% trans 'Medicación: entre las'%}
+                                {% if value.start != None %} {{value.start}} {% else %} - {% endif %}
+                                {% trans 'y las'%} {% if value.end != None %} {{value.end}} {% else %} - {% endif %}
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+
+    <div class="row justify-content-end">
+        <div class="col-auto align-self-end">
+            <a type="button" class="btn btn-primary " href="{% url 'doctorsApp:infoContract' id_patient %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5ZM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5Z"/>
+                </svg>
+                {% trans 'Volver' %}
+            </a>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

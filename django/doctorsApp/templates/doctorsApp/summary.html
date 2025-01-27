@@ -1,0 +1,423 @@
+{% extends "doctorsApp/layouts/base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container py-4">
+
+    {% include "doctorsApp/layouts/form_summary.html" %}
+
+    {% include "doctorsApp/layouts/custom_query.html" %}
+
+    <div class="card">
+        <div class="card-header ">
+            <h3>{% trans 'Cumplimiento del contrato terapéutico por día' %}</h3>
+            <h4 class="text-muted" >{% trans 'Fecha del resumen'%}: {{ date }}</h4>
+        </div>
+        <div class="card-body">
+            <div class="card-subtitle mb-4 text-muted">
+                <h4 class = "text-muted">
+                {% trans 'Paciente'%}: {{ patient.name }} {{ patient.surname }}
+                </h4>
+                <h5 class = "mtext-muted">
+                    {% trans 'Fecha de inicio en el proyecto' %}: {{ patient.date_start }}
+                </h5>
+            </div>
+            
+            <div class="card card-body">
+                <div class="pb-4">
+                    <h5 class="text-muted">{%trans 'Id contrato'%}: {{result.id_contract}}</h5>
+                </div>
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5><strong>{% trans 'Actividad'%}</strong></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5><strong>{% trans 'Objetivo'%}</strong></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5><strong>{% trans 'Realizado'%}</strong></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5><strong>{% trans 'Horario'%}</strong></h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5><strong>{% trans 'Progreso'%}</strong></h5>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <h5><strong>{% trans 'Porcentaje'%}</strong></h5>
+                    </div>
+                </div>
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Actividad física'%}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.activity.objetive %} {{result.activity.objetive}} {% trans 'minutos'%}{% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.activity.minutes %} {{result.activity.minutes}} {% trans 'minutos'%}{% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.activity.timetable == 0 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                        {% elif result.activity.timetable == 1 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                        {% elif result.activity.timetable == 2 %}
+                            <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                        {% else %}
+                            -
+                        {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+
+                        {% if result.activity.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.activity.percent}}%" 
+                                    aria-valuenow="{% if result.activity.percent != None %}{{result.activity.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.activity.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.activity.percent}}%" 
+                                    aria-valuenow="{% if result.activity.percent != None %}{{result.activity.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.activity.percent}}%" 
+                                    aria-valuenow="{% if result.activity.percent != None %}{{result.activity.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.activity.percent %} {{result.activity.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Descanso'%}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.sleep.objetive %} {{result.sleep.objetive}} {% trans 'minutos'%}{% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.sleep.minutes %} {{result.sleep.minutes}} {% trans 'minutos'%}{% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.sleep.timetable == 0 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                        {% elif result.sleep.timetable == 1 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                        {% elif result.sleep.timetable == 2 %}
+                            <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                        {% else %}
+                            -
+                        {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        {% if result.sleep.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.sleep.percent}}%" 
+                                    aria-valuenow="{% if result.sleep.percent != None %}{{result.sleep.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.sleep.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.sleep.percent}}%" 
+                                    aria-valuenow="{% if result.sleep.percent != None %}{{result.sleep.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.sleep.percent}}%" 
+                                    aria-valuenow="{% if result.sleep.percent != None %}{{result.sleep.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.sleep.percent != None %} {{result.sleep.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Autocuidado: cepillado de dientes'%}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.brush_teeth.objetive %}
+
+                            {% if result.brush_teeth.objetive == 1 %}
+                                {{result.brush_teeth.objetive}} {% trans 'vez'%}
+                            {% else %}
+                                {{result.brush_teeth.objetive}} {% trans 'veces'%}
+                            {% endif %}
+            
+                        {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.brush_teeth.times %}
+
+                                {% if result.brush_teeth.times == 1 %}
+                                    {{result.brush_teeth.times}} {% trans 'vez'%}
+                                {% else %}
+                                    {{result.brush_teeth.times}} {% trans 'veces'%}
+                                {% endif %}
+                
+                            {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.brush_teeth.timetable == 0 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                        {% elif result.brush_teeth.timetable == 1 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                        {% elif result.brush_teeth.timetable == 2 %}
+                            <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                        {% else %}
+                            -
+                        {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        {% if result.brush_teeth.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.brush_teeth.percent}}%" 
+                                    aria-valuenow="{% if result.brush_teeth.percent != None %}{{result.brush_teeth.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.brush_teeth.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.brush_teeth.percent}}%" 
+                                    aria-valuenow="{% if result.brush_teeth.percent != None %}{{result.brush_teeth.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.brush_teeth.percent}}%" 
+                                    aria-valuenow="{% if result.brush_teeth.percent != None %}{{result.brush_teeth.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.brush_teeth.percent != None %} {{result.brush_teeth.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Autocuidado: ducha'%}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.shower.objetive %} 
+
+                            {% if result.shower.objetive == 1 %}
+                                {{result.shower.objetive}} {% trans 'vez'%}
+                            {% else %}
+                                {{result.shower.objetive}} {% trans 'veces'%}
+                            {% endif %}
+                        
+                        {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.shower.times %} 
+
+                                {% if result.shower.times == 1 %}
+                                    {{result.shower.times}} {% trans 'vez'%}
+                                {% else %}
+                                    {{result.shower.times}} {% trans 'veces'%}
+                                {% endif %}
+                            
+                            {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.shower.timetable == 0 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                        {% elif result.shower.timetable == 1 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                        {% elif result.shower.timetable == 2 %}
+                            <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                        {% else %}
+                            -
+                        {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        {% if result.shower.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.shower.percent}}%" 
+                                    aria-valuenow="{% if result.shower.percent != None %}{{result.shower.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.shower.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.shower.percent}}%" 
+                                    aria-valuenow="{% if result.shower.percent != None %}{{result.shower.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.shower.percent}}%" 
+                                    aria-valuenow="{% if result.shower.percent != None %}{{result.shower.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.shower.percent != None %} {{result.shower.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Alimentación'%}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.eat.objetive %} 
+
+                            {% if result.eat.objetive == 1 %}
+                                {{result.eat.objetive}} {% trans 'vez' %}
+                            {% else %}
+                                {{result.eat.objetive}} {% trans 'veces' %}
+                            {% endif %}        
+                        
+                        {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.eat.times %} 
+
+                                {% if result.eat.times == 1 %}
+                                    {{result.eat.times}} {% trans 'vez' %}
+                                {% else %}
+                                    {{result.eat.times}} {% trans 'veces' %}
+                                {% endif %}        
+                            
+                            {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.eat.timetable == 0 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                        {% elif result.eat.timetable == 1 %} 
+                            <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                        {% elif result.eat.timetable == 2 %}
+                            <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                        {% else %}
+                            -
+                        {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        {% if result.eat.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.eat.percent}}%" 
+                                    aria-valuenow="{% if result.eat.percent != None %}{{result.eat.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.eat.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.eat.percent}}%" 
+                                    aria-valuenow="{% if result.eat.percent != None %}{{result.eat.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.eat.percent}}%" 
+                                    aria-valuenow="{% if result.eat.percent != None %}{{result.eat.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.eat.percent != None %} {{result.eat.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center py-auto">
+                    <div class="col-sm-2">
+                        <h5>{% trans 'Medicación' %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.medication.objetive %} 
+
+                            {% if result.medication.objetive == 1 %}
+                                {{result.medication.objetive}} {% trans 'vez'%}
+                            {% else %}
+                                {{result.medication.objetive}} {% trans 'veces'%}
+                            {% endif %}        
+                                     
+                        {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.medication.times %} 
+
+                                {% if result.medication.times == 1 %}
+                                    {{result.medication.times}} {% trans 'vez'%}
+                                {% else %}
+                                    {{result.medication.times}} {% trans 'veces'%}
+                                {% endif %}        
+                                         
+                            {% else %} - {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>{% if result.medication.timetable == 0 %} 
+                                <div class=""><i class="fa-solid fa-circle" style="color:#dc3545"></i></div>
+                            {% elif result.medication.timetable == 1 %} 
+                                <div class=""><i class="fa-solid fa-circle" style="color:#ffc107"></i></div>
+                            {% elif result.medication.timetable == 2 %}
+                                <div class=""><i class="fa-solid fa-circle" style="color:#198754"></i></div>
+                            {% else %}
+                                -
+                            {% endif %}</h5>
+                    </div>
+                    <div class="col-sm-2">
+                        {% if result.medication.percent >= 75 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{result.medication.percent}}%" 
+                                    aria-valuenow="{% if result.medication.percent != None %}{{result.medication.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% elif result.medication.percent >= 30 %}
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" 
+                                    style="width: {{result.medication.percent}}%" 
+                                    aria-valuenow="{% if result.medication.percent != None %}{{result.medication.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% else %}
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" 
+                                    style="width: {{result.medication.percent}}%" 
+                                    aria-valuenow="{% if result.medication.percent != None %}{{result.medication.percent}}{% else %}0{% endif %}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="text-center">
+                            <h5>{% if result.medication.percent != None %} {{result.medication.percent}}% {% else %} 0% {% endif %}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+        </div>
+    </div>
+    
+    {% include "doctorsApp/layouts/download_form.html" %}
+
+    {% include "doctorsApp/layouts/incidences.html" %}
+
+</main>
+{% endblock %}

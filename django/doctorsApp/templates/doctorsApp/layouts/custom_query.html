@@ -1,0 +1,30 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <form action="{% url 'doctorsApp:getSummaryCustom' id_patient %}" enctype="multipart/form-data" method="GET">
+        <div class="row">
+            <div class="col-12 col-md-auto pt-1" align="center">
+                <h5 title="Seleccione una fecha de inicio y otra de fin para obtener un resumen">{% trans 'Consulta personalizada' %}</h5>
+            </div>
+            <div class="col-12 col-md-auto ">
+                {{ form_custom.start_date|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-auto ">
+                {{ form_custom.end_date|as_crispy_field }}
+            </div>
+            <div class="col-12 col-md-auto " align="center">
+                <button type="submit" class="btn btn-primary ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                    {% trans 'Buscar' %}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<br>

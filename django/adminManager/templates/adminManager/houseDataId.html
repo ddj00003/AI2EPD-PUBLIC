@@ -1,0 +1,197 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load poll_extras %}
+{% block content %}
+
+<script src="{% static 'adminManager/js/auto-reload.js' %}"></script>
+<main class="container py-3">
+
+    {% include "adminManager/layouts/house_picker.html"%}
+    
+    {% for k, v in house_data.items %}
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{{k}}</h1>
+        </div>
+        <div class="card-body">
+            {% if v.sensors %}
+                <div class="row">
+                    <p><h5 class ="fw-bold">{%trans 'Sensores'%}</h5></p>
+                </div>
+            {% endif %}
+            {% for name, data in v.sensors.items %}
+                {% if data %}
+                    {% if data.type|in_list:'motion,open/close' %}
+                        <div class= "row pt-2">
+                            <div class="col-12">
+                                <h6 class ="fw-bold">{{name}}</h6>
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Id sensor{% endblocktranslate %}: {{data.id_sensor}}
+                            </div>
+                
+                            <div class="col-auto">
+                                {% blocktranslate %}Estado{% endblocktranslate %}: {{data.state}}
+                            </div>
+                        </div>
+                    {% elif data.type == "temp&hm&presion" %}
+                        <div class= "row">
+                            <div class="col-12">
+                                <h6 class ="fw-bold">{{name}}</h6>
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Id sensor{% endblocktranslate %}: {{data.id_sensor}}
+                            </div>
+                            <div class="col-auto">
+                                {% blocktranslate %}Temperatura{% endblocktranslate %}: {{data.temperature}}°C,
+                                {% blocktranslate %}Humedad{% endblocktranslate %}: {{data.humidity}}%,
+                                {% blocktranslate %}Presión{% endblocktranslate %}: {{data.pressure}}hPa
+                            </div>
+                        </div>
+                    {% elif data.type == "energy_consumption" %}
+                    <div class= "row">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Id sensor{% endblocktranslate %}: {{data.id_sensor}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Potencia actual{% endblocktranslate %}: {{data.current_power}}W,
+                            {% blocktranslate %}Consumo actual{% endblocktranslate %}: {{data.current_consumption}}kWh,
+                            {% blocktranslate %}Consumo total{% endblocktranslate %}: {{data.total_consumption}}kWh
+                        </div>
+                    </div>
+                    {% elif data.type == "energy_consumption_v2" %}
+                    <div class= "row">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Id sensor{% endblocktranslate %}: {{data.id_sensor}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Intensidad{% endblocktranslate %}: {{data.current_a}}A,
+                            {% blocktranslate %}Potencia actual{% endblocktranslate %}: {{data.current_w}}W,
+                            {% blocktranslate %}Consumo hoy{% endblocktranslate %}: {{data.today_consumption}}kWh,
+                            {% blocktranslate %}Consumo total{% endblocktranslate %}: {{data.total_consumption}}kWh,
+                            {% blocktranslate %}Voltaje total{% endblocktranslate %}: {{data.total_voltage}}V
+                        </div>
+                    </div>
+                    {% endif %}
+                {% else %}
+                    <div class= "row">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <hr class="hr hr-blurry" />
+            {% endfor %}
+
+            {% if v.wristbands %}
+            <div class="row">
+                <p><h5 class ="fw-bold">{%trans 'Pulseras'%}</h5></p>
+            </div>
+            {% endif %}
+
+            {% for name, data in v.wristbands.items %}
+                {% if data %}
+                    <div class= "row">
+                        <div class="col-12 pt-2">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Fecha{% endblocktranslate %}: {{data.timestamp}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Id pulsera{% endblocktranslate %}: {{data.id_wristband}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Batería{% endblocktranslate %}: {{data.battery}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Ultimos pasos{% endblocktranslate %}: {{data.last_steps}}
+                        </div>
+                    
+                    </div>
+                {% else %}
+                    <div class= "row">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <hr class="hr hr-blurry" />
+            {% endfor %}
+
+            {% if v.anchors %}
+                <div class="row">
+                    <p><h5 class ="fw-bold">{%trans 'Anclas'%}</h5></p>
+                </div>
+            {% endif %} 
+
+            {% for name, data in v.anchors.items %}
+                {% if data %}
+                <div class= "row">
+                    <div class="col-12 pt-2">
+                        <h6 class ="fw-bold">{{name}}</h6>
+                    </div>
+                </div>
+                {% for a in data %}
+                    <div class= "row">
+                        <div class="col-auto">
+                            {% blocktranslate %}Fecha{% endblocktranslate %}: {{a.timestamp}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Id baliza{% endblocktranslate %}: {{a.id_beacon}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Id ancla{% endblocktranslate %}: {{a.id_anchor}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}RSSI{% endblocktranslate %}: {{a.rssi}}
+                        </div>
+                        <div class="col-auto">
+                            {% blocktranslate %}Ventana temporal [ Tamaño{% endblocktranslate %}: {{a.time_window.size_window}} &nbsp; RSSI:{{a.time_window.rssi}} ]
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% else %}
+                    <div class= "row">
+                        <div class="col-12">
+                            <h6 class ="fw-bold">{{name}}</h6>
+                        </div>
+                        <div class="col-auto">
+                            {%trans 'No hay datos'%}
+                        </div>
+                    </div>
+                {% endif %}
+                <hr class="hr hr-blurry" />
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</main>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "startPage/layouts/base-login.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class ="container py-5">
+    <div class = "row justify-content-center">
+        <div class = "col-lg-8 col-xl-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4><strong>{%trans 'Iniciar sesión'%}</strong></h4>
+                </div>
+                <div  class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.username|as_crispy_field }}
+                        {{ form.password|as_crispy_field }}
+                        {% if error %}
+                            <div class="alert alert-secondary" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                        <div class="mx-auto text-center">
+                            <input type="submit" class="btn btn-primary " value={%trans 'Iniciar sesión'%}>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

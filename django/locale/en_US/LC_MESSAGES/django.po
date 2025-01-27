@@ -1,0 +1,1057 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-14 17:25+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\adminManager\db.py:71
+msgid "Vivienda añadida correctamente"
+msgstr "Dwelling added correctly"
+
+#: .\adminManager\db.py:90 .\adminManager\db.py:112 .\adminManager\db.py:134
+#: .\adminManager\db.py:186
+msgid "Error: Clave primaria duplicada"
+msgstr "Error: Primary key duplicated"
+
+#: .\adminManager\db.py:92
+msgid "Ancla añadida correctamente"
+msgstr "Anchor added correctly"
+
+#: .\adminManager\db.py:114
+msgid "Pulsera añadida correctamente"
+msgstr "Wristban added correctly"
+
+#: .\adminManager\db.py:136
+msgid "Sensor añadido correctamente"
+msgstr "Sensor added correctly"
+
+#: .\adminManager\db.py:188
+msgid "Incidencia añadida correctamente"
+msgstr "Incidence added correctly"
+
+#: .\adminManager\decorators.py:16 .\doctorsApp\decorators.py:16
+#: .\doctorsApp\functions.py:101
+msgid "No estás autorizado"
+msgstr "You are not authorized"
+
+#: .\adminManager\decorators.py:17
+msgid ""
+"Página reservada para la administración del sistema. Si deberías tener "
+"acceso, contacta con el administrador."
+msgstr ""
+"Page reserved for the system administration. If you should have access, "
+"contact the administrator."
+
+#: .\adminManager\forms.py:6
+msgid "Movimiento"
+msgstr "Movement"
+
+#: .\adminManager\forms.py:7
+msgid "Apertura/Cierre"
+msgstr "Open/Close"
+
+#: .\adminManager\forms.py:8
+msgid "Temperatura, humedad y presión"
+msgstr "Temperature, humidity and pressure"
+
+#: .\adminManager\forms.py:9
+msgid "Consumo de energía"
+msgstr "Energy consumption"
+
+#: .\adminManager\forms.py:12 .\adminManager\forms.py:18
+#: .\adminManager\forms.py:27 .\adminManager\forms.py:42
+#: .\adminManager\templates\adminManager\anchors.html:19
+#: .\adminManager\templates\adminManager\houses.html:18
+#: .\adminManager\templates\adminManager\main.html:15
+#: .\adminManager\templates\adminManager\main.html:48
+#: .\adminManager\templates\adminManager\main.html:84
+#: .\adminManager\templates\adminManager\main.html:118
+#: .\adminManager\templates\adminManager\sensors.html:18
+#: .\adminManager\templates\adminManager\wristbands.html:18
+msgid "Nombre"
+msgstr "Name"
+
+#: .\adminManager\forms.py:13 .\adminManager\forms.py:19
+#: .\adminManager\forms.py:28 .\adminManager\forms.py:43
+#: .\adminManager\forms.py:69
+#: .\adminManager\templates\adminManager\anchors.html:20
+#: .\adminManager\templates\adminManager\houses.html:19
+#: .\adminManager\templates\adminManager\incidences.html:21
+#: .\adminManager\templates\adminManager\main.html:17
+#: .\adminManager\templates\adminManager\main.html:51
+#: .\adminManager\templates\adminManager\main.html:86
+#: .\adminManager\templates\adminManager\main.html:120
+#: .\adminManager\templates\adminManager\sensors.html:19
+#: .\adminManager\templates\adminManager\wristbands.html:19
+#: .\doctorsApp\templates\doctorsApp\layouts\incidences.html:17
+msgid "Descripción"
+msgstr "Description"
+
+#: .\adminManager\forms.py:14 .\adminManager\forms.py:20
+#: .\adminManager\forms.py:29
+#: .\adminManager\templates\adminManager\anchors.html:21
+#: .\adminManager\templates\adminManager\houses.html:20
+#: .\adminManager\templates\adminManager\main.html:16
+#: .\adminManager\templates\adminManager\main.html:85
+#: .\adminManager\templates\adminManager\main.html:119
+#: .\adminManager\templates\adminManager\wristbands.html:20
+msgid "Mac"
+msgstr "Mac"
+
+#: .\adminManager\forms.py:17 .\adminManager\forms.py:23
+#: .\adminManager\forms.py:26 .\adminManager\forms.py:32
+#: .\adminManager\forms.py:41 .\adminManager\forms.py:48
+#: .\adminManager\forms.py:64 .\adminManager\forms.py:72
+msgid "Vivienda"
+msgstr "Dwelling"
+
+#: .\adminManager\forms.py:44
+#: .\adminManager\templates\adminManager\main.html:50
+#: .\adminManager\templates\adminManager\sensors.html:21
+msgid "Dirección ieee"
+msgstr "IEEE address"
+
+#: .\adminManager\forms.py:45
+msgid "Tipo de sensor"
+msgstr "Sensor type"
+
+#: .\adminManager\forms.py:51 .\startPage\forms.py:5
+msgid "Usuario"
+msgstr "User"
+
+#: .\adminManager\forms.py:52 .\startPage\forms.py:6
+msgid "Contraseña"
+msgstr "Password"
+
+#: .\adminManager\forms.py:53
+msgid "Repetir contraseña"
+msgstr "Repeat password"
+
+#: .\adminManager\forms.py:60 .\adminManager\views.py:281
+msgid "Las contraseñas no coinciden"
+msgstr "Passwords do not match"
+
+#: .\adminManager\forms.py:65
+#: .\adminManager\templates\adminManager\incidences.html:19
+#: .\doctorsApp\forms.py:43
+#: .\doctorsApp\templates\doctorsApp\layouts\incidences.html:15
+#: .\doctorsApp\templates\doctorsApp\summary_custom.html:15
+msgid "Fecha de inicio"
+msgstr "Start date"
+
+#: .\adminManager\forms.py:67
+#: .\adminManager\templates\adminManager\incidences.html:20
+#: .\doctorsApp\forms.py:45
+#: .\doctorsApp\templates\doctorsApp\layouts\incidences.html:16
+#: .\doctorsApp\templates\doctorsApp\summary_custom.html:16
+msgid "Fecha de fin"
+msgstr "End date"
+
+#: .\adminManager\logger_sin.py:57
+msgid "Error 500 - Internal Server Error"
+msgstr "Error 500 - Internal Server Error"
+
+#: .\adminManager\logger_sin.py:58
+msgid "Error de servidor"
+msgstr "Server error"
+
+#: .\adminManager\logger_sin.py:59
+msgid "Ha ocurrido un error en el servidor. Contacta con el administrador."
+msgstr ""
+
+#: .\adminManager\templates\adminManager\anchors.html:10
+#: .\adminManager\templates\adminManager\houseDataId.html:129
+#: .\adminManager\templates\adminManager\layouts\base.html:42
+#: .\adminManager\templates\adminManager\layouts\base.html:97
+#: .\adminManager\templates\adminManager\main.html:109
+#: .\adminManager\templates\adminManager\status.html:93
+msgid "Anclas"
+msgstr "Anchors"
+
+#: .\adminManager\templates\adminManager\anchors.html:18
+#: .\adminManager\templates\adminManager\incidences.html:18
+#: .\adminManager\templates\adminManager\main.html:47
+#: .\adminManager\templates\adminManager\main.html:83
+#: .\adminManager\templates\adminManager\main.html:117
+#: .\adminManager\templates\adminManager\sensors.html:17
+#: .\adminManager\templates\adminManager\wristbands.html:17
+msgid "Id vivienda"
+msgstr "Id dwelling"
+
+#: .\adminManager\templates\adminManager\anchors.html:33
+#: .\adminManager\templates\adminManager\anchors.html:41
+#: .\adminManager\templates\adminManager\houses.html:31
+#: .\adminManager\templates\adminManager\houses.html:39
+#: .\adminManager\templates\adminManager\sensors.html:34
+#: .\adminManager\templates\adminManager\sensors.html:42
+#: .\adminManager\templates\adminManager\wristbands.html:32
+#: .\adminManager\templates\adminManager\wristbands.html:40
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:200
+msgid "Editar"
+msgstr "Edit"
+
+#: .\adminManager\templates\adminManager\anchors.html:51
+#: .\adminManager\templates\adminManager\anchors.html:76
+#: .\adminManager\templates\adminManager\houses.html:49
+#: .\adminManager\templates\adminManager\houses.html:74
+#: .\adminManager\templates\adminManager\incidences.html:48
+#: .\adminManager\templates\adminManager\sensors.html:55
+#: .\adminManager\templates\adminManager\sensors.html:80
+#: .\adminManager\templates\adminManager\wristbands.html:51
+#: .\adminManager\templates\adminManager\wristbands.html:76
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:260
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: .\adminManager\templates\adminManager\anchors.html:53
+#: .\adminManager\templates\adminManager\houses.html:51
+#: .\adminManager\templates\adminManager\sensors.html:57
+#: .\adminManager\templates\adminManager\wristbands.html:53
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:269
+msgid "Guardar"
+msgstr "Save"
+
+#: .\adminManager\templates\adminManager\anchors.html:61
+#: .\adminManager\templates\adminManager\anchors.html:67
+#: .\adminManager\templates\adminManager\anchors.html:78
+#: .\adminManager\templates\adminManager\houses.html:59
+#: .\adminManager\templates\adminManager\houses.html:65
+#: .\adminManager\templates\adminManager\houses.html:76
+#: .\adminManager\templates\adminManager\incidences.html:33
+#: .\adminManager\templates\adminManager\incidences.html:39
+#: .\adminManager\templates\adminManager\incidences.html:50
+#: .\adminManager\templates\adminManager\sensors.html:65
+#: .\adminManager\templates\adminManager\sensors.html:71
+#: .\adminManager\templates\adminManager\sensors.html:82
+#: .\adminManager\templates\adminManager\wristbands.html:61
+#: .\adminManager\templates\adminManager\wristbands.html:67
+#: .\adminManager\templates\adminManager\wristbands.html:78
+msgid "Eliminar"
+msgstr "Delete"
+
+#: .\adminManager\templates\adminManager\anchors.html:72
+#: .\adminManager\templates\adminManager\houses.html:70
+#: .\adminManager\templates\adminManager\sensors.html:76
+#: .\adminManager\templates\adminManager\wristbands.html:72
+msgid "¿Estás seguro de que quieres eliminar"
+msgstr "¿ Are you sure you want to delete"
+
+#: .\adminManager\templates\adminManager\anchors.html:99
+msgid "Añadir ancla"
+msgstr "Add anchor"
+
+#: .\adminManager\templates\adminManager\anchors.html:117
+#: .\adminManager\templates\adminManager\houses.html:117
+#: .\adminManager\templates\adminManager\incidences.html:89
+#: .\adminManager\templates\adminManager\sensors.html:126
+#: .\adminManager\templates\adminManager\wristbands.html:117
+msgid "Añadir"
+msgstr "Add"
+
+#: .\adminManager\templates\adminManager\data_charts.html:21
+msgid "Realiza una búsqueda para visualizar los datos"
+msgstr "Make a search to view the data"
+
+#: .\adminManager\templates\adminManager\error.html:21
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:14
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:164
+#: .\doctorsApp\templates\doctorsApp\error.html:21
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:14
+#: .\startPage\templates\startPage\error.html:21
+msgid "Volver"
+msgstr "Back"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:19
+#: .\adminManager\templates\adminManager\layouts\base.html:46
+#: .\adminManager\templates\adminManager\layouts\base.html:98
+#: .\adminManager\templates\adminManager\main.html:39
+#: .\adminManager\templates\adminManager\sensors.html:9
+#: .\adminManager\templates\adminManager\status.html:16
+msgid "Sensores"
+msgstr "Sensors"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:30
+#: .\adminManager\templates\adminManager\houseDataId.html:46
+#: .\adminManager\templates\adminManager\houseDataId.html:63
+#: .\adminManager\templates\adminManager\houseDataId.html:101
+#: .\adminManager\templates\adminManager\houseDataId.html:143
+#: .\adminManager\templates\adminManager\status.html:27
+#: .\adminManager\templates\adminManager\status.html:36
+#: .\adminManager\templates\adminManager\status.html:45
+#: .\adminManager\templates\adminManager\status.html:75
+#: .\adminManager\templates\adminManager\status.html:104
+msgid "Fecha"
+msgstr "Date"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:33
+#: .\adminManager\templates\adminManager\houseDataId.html:49
+#: .\adminManager\templates\adminManager\houseDataId.html:66
+msgid "Id sensor"
+msgstr "Id sensor"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:37
+msgid "Estado"
+msgstr "State"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:52
+msgid "Temperatura"
+msgstr "Temperature"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:53
+msgid "Humedad"
+msgstr "Humidity"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:54
+msgid "Presión"
+msgstr "Pressure"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:69
+msgid "Potencia actual"
+msgstr "Current power"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:70
+msgid "Consumo actual"
+msgstr "Current consumption"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:71
+msgid "Consumo total"
+msgstr "Total consumption"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:81
+#: .\adminManager\templates\adminManager\houseDataId.html:120
+#: .\adminManager\templates\adminManager\houseDataId.html:166
+#: .\adminManager\templates\adminManager\status.html:55
+#: .\adminManager\templates\adminManager\status.html:84
+#: .\adminManager\templates\adminManager\status.html:114
+msgid "No hay datos"
+msgstr "No data"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:90
+#: .\adminManager\templates\adminManager\layouts\base.html:50
+#: .\adminManager\templates\adminManager\layouts\base.html:99
+#: .\adminManager\templates\adminManager\main.html:75
+#: .\adminManager\templates\adminManager\status.html:64
+#: .\adminManager\templates\adminManager\wristbands.html:9
+msgid "Pulseras"
+msgstr "Wristbands"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:104
+msgid "Id pulsera"
+msgstr "Id wristband"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:107
+msgid "Batería"
+msgstr "Battery"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:110
+msgid "Ultimos pasos"
+msgstr "Last steps"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:146
+msgid "Id baliza"
+msgstr "Id beacon"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:149
+msgid "Id ancla"
+msgstr "Id anchor"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:152
+msgid "RSSI"
+msgstr "RSSI"
+
+#: .\adminManager\templates\adminManager\houseDataId.html:155
+msgid "Ventana temporal [ Tamaño"
+msgstr "Temporal window [ Size"
+
+#: .\adminManager\templates\adminManager\houses.html:10
+#: .\adminManager\templates\adminManager\layouts\base.html:38
+#: .\adminManager\templates\adminManager\layouts\base.html:96
+#: .\adminManager\templates\adminManager\main.html:7
+msgid "Viviendas"
+msgstr "Dwellings"
+
+#: .\adminManager\templates\adminManager\houses.html:102
+msgid "Añadir vivienda"
+msgstr "Add dwelling"
+
+#: .\adminManager\templates\adminManager\incidences.html:10
+#: .\adminManager\templates\adminManager\layouts\base.html:66
+#: .\doctorsApp\templates\doctorsApp\layouts\incidences.html:8
+msgid "Incidencias"
+msgstr "Incidences"
+
+#: .\adminManager\templates\adminManager\incidences.html:44
+msgid "¿Estás seguro de que quieres eliminar la incidencia"
+msgstr "¿ Are you sure you want to delete the incidence"
+
+#: .\adminManager\templates\adminManager\incidences.html:71
+msgid "Añadir incidencia"
+msgstr "Add incidence"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:9
+msgid "Gestión"
+msgstr "Management"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:54
+#: .\adminManager\templates\adminManager\layouts\base.html:100
+msgid "Datos"
+msgstr "Data"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:58
+#: .\adminManager\templates\adminManager\layouts\base.html:101
+msgid "Localización"
+msgstr "Location"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:62
+msgid "Gráficos"
+msgstr "Graphs"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:80
+#: .\doctorsApp\templates\doctorsApp\layouts\base.html:50
+#: .\startPage\templates\startPage\layouts\base.html:44
+msgid "Cerrar sesión"
+msgstr "Logout"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:95
+msgid "Home"
+msgstr "Home"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:105
+msgid "App de seguimiento"
+msgstr "Monitoring app"
+
+#: .\adminManager\templates\adminManager\layouts\base.html:110
+#: .\doctorsApp\templates\doctorsApp\layouts\base.html:74
+#: .\startPage\templates\startPage\layouts\base-login.html:45
+#: .\startPage\templates\startPage\layouts\base.html:58
+msgid ""
+"© 2022 Proyecto AI2EPD. Inteligencia artificial para empoderar al paciente "
+"con diabetes a través de la monitorización de las actividades diarias."
+msgstr ""
+"© 2022 AI2EPD Project. Artificial intelligence to empower the patient with "
+"diabetes through the monitoring of daily activities."
+
+#: .\adminManager\templates\adminManager\layouts\house_picker.html:16
+#: .\adminManager\templates\adminManager\locations.html:21
+msgid "Cargar datos"
+msgstr "Load data"
+
+#: .\adminManager\templates\adminManager\layouts\search_date.html:8
+msgid "Buscar datos"
+msgstr "Search data"
+
+#: .\adminManager\templates\adminManager\layouts\search_date.html:23
+#: .\doctorsApp\templates\doctorsApp\layouts\custom_query.html:23
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:65
+msgid "Buscar"
+msgstr "Search"
+
+#: .\adminManager\templates\adminManager\locations.html:41
+msgid "No hay datos de localización disponibles"
+msgstr "No location data available"
+
+#: .\adminManager\templates\adminManager\main.html:49
+#: .\adminManager\templates\adminManager\sensors.html:20
+msgid "Tipo"
+msgstr "Type"
+
+#: .\adminManager\templates\adminManager\sensors.html:103
+msgid "Añadir sensor"
+msgstr "Add sensor"
+
+#: .\adminManager\templates\adminManager\wristbands.html:99
+msgid "Añadir pulsera"
+msgstr "Add wristband"
+
+#: .\adminManager\views.py:292
+msgid "El nombre de usuario ya existe"
+msgstr "Username already exists"
+
+#: .\doctorsApp\db.py:160
+msgid "Contrato añadido correctamente"
+msgstr "Contract added correctly"
+
+#: .\doctorsApp\decorators.py:17
+msgid ""
+"Página reservada para la monitorización de los "
+"pacientes.                         Si deberías tener acceso, contacta con el "
+"administrador."
+msgstr ""
+"Page reserved for the monitoring of the patients. If you should have access, "
+"contact the administrator. "
+
+#: .\doctorsApp\forms.py:9 .\doctorsApp\forms.py:51
+msgid "Caminar"
+msgstr "Physical activity"
+
+#: .\doctorsApp\forms.py:10 .\doctorsApp\forms.py:50
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:118
+msgid "Ducha"
+msgstr "Shower"
+
+#: .\doctorsApp\forms.py:11
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:79
+msgid "Cepillado"
+msgstr "Brush teeth"
+
+#: .\doctorsApp\forms.py:12 .\doctorsApp\forms.py:53
+msgid "Comer"
+msgstr "Meals"
+
+#: .\doctorsApp\forms.py:13 .\doctorsApp\forms.py:54
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:138
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:211
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:173
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:244
+#: .\doctorsApp\templates\doctorsApp\summary.html:343
+msgid "Medicación"
+msgstr "Medication"
+
+#: .\doctorsApp\forms.py:14 .\doctorsApp\forms.py:55
+msgid "Dormir"
+msgstr "Rest"
+
+#: .\doctorsApp\forms.py:47
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:14
+#: .\doctorsApp\templates\doctorsApp\summary.html:26
+msgid "Actividad"
+msgstr "Activity"
+
+#: .\doctorsApp\forms.py:52
+msgid "Cepillarse los dientes"
+msgstr "Brushing teeth"
+
+#: .\doctorsApp\functions.py:92 .\doctorsApp\views.py:408
+msgid "Elemento no encontrado"
+msgstr "Element not found"
+
+#: .\doctorsApp\functions.py:93
+msgid "El paciente no existe."
+msgstr "The patient does not exist."
+
+#: .\doctorsApp\functions.py:102
+msgid "No puedes acceder a la información de este paciente."
+msgstr "You cannot access the information of this patient."
+
+#: .\doctorsApp\helpers.py:50
+msgid "Vigente"
+msgstr "Active"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:26
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:17
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:25
+msgid "Contrato terapéutico"
+msgstr "Therapeutic contract"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:32
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:19
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:31
+msgid "Fecha de inicio del contrato"
+msgstr "Contract start date"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:33
+msgid "Fecha de fin del contrato"
+msgstr "Contract end date"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:34
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:32
+msgid "Modificado por"
+msgstr "Modified by"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:38
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:23
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:52
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:5
+#: .\doctorsApp\templates\doctorsApp\main.html:18
+#: .\doctorsApp\templates\doctorsApp\summary.html:19
+msgid "Paciente"
+msgstr "Patient"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:42
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:27
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:77
+msgid "Actividades a realizar"
+msgstr "Activities to be undertaken"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:43
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:78
+msgid ""
+"El paciente acuerda con los profesionales sanitarios de referencia realizar "
+"las actividade descritas a continuación, en la medida de sus posibilidades"
+msgstr ""
+"The patient agrees with the referring health care professionals to perform "
+"the activities described below, in the measure of their possibilities"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:47
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:33
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:82
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:32
+#: .\doctorsApp\templates\doctorsApp\summary.html:47
+msgid "Actividad física"
+msgstr "Physical activity"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:48
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:83
+msgid ""
+"Caminar al menos 30 minutos por la mañana y 30 minutos por la tarde cada día"
+msgstr ""
+"Walk at least 30 minutes in the morning and 30 minutes in the afternoon "
+"every day"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:51
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:35
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:86
+msgid "Mañana: entre las"
+msgstr "Morning: between"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:54
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:62
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:77
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:97
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:114
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:129
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:145
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:40
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:52
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:68
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:87
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:99
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:111
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:126
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:142
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:154
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:166
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:178
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:190
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:202
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:218
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:230
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:242
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:89
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:97
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:112
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:132
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:149
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:164
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:180
+msgid "y las"
+msgstr "and"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:59
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:47
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:94
+msgid "Tarde: entre las"
+msgstr "Afternoon: between "
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:71
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:61
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:106
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:75
+#: .\doctorsApp\templates\doctorsApp\summary.html:98
+msgid "Descanso"
+msgstr "Rest"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:72
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:107
+msgid "Dormir al menos 5 horas cada noche"
+msgstr "Sleep at least 5 hours every night"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:75
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:112
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:63
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:121
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:110
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:147
+msgid "Entre las"
+msgstr "Between"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:85
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:77
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:120
+msgid "Autocuidado"
+msgstr "Self-care"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:89
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:124
+msgid "Cepillado de dientes"
+msgstr "Toothbrushing"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:90
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:125
+msgid "Al menos 3 veces al día, tras las comidas principales"
+msgstr "At least 3 times a day, after main meals"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:95
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:130
+msgid "Cepillado: entre las"
+msgstr "Toothbrushing: between "
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:108
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:143
+msgid "Ducha diaria"
+msgstr "Daily shower"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:122
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:135
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:157
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:202
+#: .\doctorsApp\templates\doctorsApp\summary.html:278
+msgid "Alimentación"
+msgstr "Meals"
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:127
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:162
+msgid "Comida: entre las"
+msgstr "Meal: between "
+
+#: .\doctorsApp\templates\doctorsApp\all_contracts.html:143
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:178
+msgid "Medicación: entre las"
+msgstr "Medication: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:82
+msgid "Cepillado 1: entre las"
+msgstr "Brushing 1: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:94
+msgid "Cepillado 2: entre las"
+msgstr "Brushing 2: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:106
+msgid "Cepillado 3: entre las"
+msgstr "Brushing 3: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:137
+msgid "Comida 1: entre las"
+msgstr "Meal 1: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:149
+msgid "Comida 2: entre las"
+msgstr "Meal 2: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:161
+msgid "Comida 3: entre las"
+msgstr "Meal 3: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:173
+msgid "Comida 4: entre las"
+msgstr "Meal 4: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:185
+msgid "Comida 5: entre las"
+msgstr "Meal 5: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:197
+msgid "Comida 6: entre las"
+msgstr "Meal 6: between "
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:213
+msgid "Medicación 1: entre las"
+msgstr "Medication: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:225
+msgid "Medicación 2: entre las"
+msgstr "Medication: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\edit_contract.html:237
+msgid "Medicación 3: entre las"
+msgstr "Medication: between  the"
+
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:35
+msgid "Cambios en el contrato terapéutico"
+msgstr "Changes in the therapeutic contract"
+
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:44
+msgid "Ver contratos"
+msgstr "View contracts"
+
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:57
+msgid "No hay ningún contrato terapéutico asociado a este paciente"
+msgstr "There is no therapeutic contract associated with this patient."
+
+#: .\doctorsApp\templates\doctorsApp\info_contract.html:67
+msgid "Crear contrato"
+msgstr "Create contract"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\base.html:37
+#: .\doctorsApp\templates\doctorsApp\layouts\base.html:65
+msgid "Pacientes"
+msgstr "Patients"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\base.html:69
+msgid "App de gestión"
+msgstr "Management app"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\custom_query.html:8
+msgid "Consulta personalizada"
+msgstr "Custom query"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\download_form.html:9
+#: .\doctorsApp\templates\doctorsApp\layouts\download_form.html:32
+msgid "Descargar datos"
+msgstr "Download data"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:16
+msgid "Ver contrato terapéutico"
+msgstr "View therapeutic contract"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:29
+msgid "Consultar otros datos"
+msgstr "Consult other data"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:42
+msgid "Semana"
+msgstr "Week"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:47
+msgid "Mes"
+msgstr "Month"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\form_summary.html:52
+msgid "Año"
+msgstr "Year"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:10
+#: .\doctorsApp\templates\doctorsApp\summary.html:22
+msgid "Id contrato"
+msgstr "Contract id"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:17
+#: .\doctorsApp\templates\doctorsApp\summary.html:29
+msgid "Objetivo"
+msgstr "Objective"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:20
+msgid "Media por día"
+msgstr "Average per day"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:23
+#: .\doctorsApp\templates\doctorsApp\summary.html:38
+msgid "Progreso"
+msgstr "Progress"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:26
+#: .\doctorsApp\templates\doctorsApp\summary.html:41
+msgid "Porcentaje"
+msgstr "Percentage"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:35
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:41
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:78
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:84
+#: .\doctorsApp\templates\doctorsApp\summary.html:50
+#: .\doctorsApp\templates\doctorsApp\summary.html:53
+#: .\doctorsApp\templates\doctorsApp\summary.html:101
+#: .\doctorsApp\templates\doctorsApp\summary.html:104
+msgid "minutos"
+msgstr "minutes"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:39
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:82
+msgid "minuto"
+msgstr "minute"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:117
+#: .\doctorsApp\templates\doctorsApp\summary.html:147
+msgid "Autocuidado: cepillado de dientes"
+msgstr "Self-care: toothbrushing"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:120
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:126
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:162
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:168
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:205
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:211
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:247
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:253
+#: .\doctorsApp\templates\doctorsApp\summary.html:155
+#: .\doctorsApp\templates\doctorsApp\summary.html:166
+#: .\doctorsApp\templates\doctorsApp\summary.html:220
+#: .\doctorsApp\templates\doctorsApp\summary.html:231
+#: .\doctorsApp\templates\doctorsApp\summary.html:286
+#: .\doctorsApp\templates\doctorsApp\summary.html:297
+#: .\doctorsApp\templates\doctorsApp\summary.html:351
+#: .\doctorsApp\templates\doctorsApp\summary.html:362
+msgid "veces"
+msgstr "times"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:124
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:166
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:209
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:251
+#: .\doctorsApp\templates\doctorsApp\summary.html:153
+#: .\doctorsApp\templates\doctorsApp\summary.html:164
+#: .\doctorsApp\templates\doctorsApp\summary.html:218
+#: .\doctorsApp\templates\doctorsApp\summary.html:229
+#: .\doctorsApp\templates\doctorsApp\summary.html:284
+#: .\doctorsApp\templates\doctorsApp\summary.html:295
+#: .\doctorsApp\templates\doctorsApp\summary.html:349
+#: .\doctorsApp\templates\doctorsApp\summary.html:360
+msgid "vez"
+msgstr "time"
+
+#: .\doctorsApp\templates\doctorsApp\layouts\summary_content.html:159
+#: .\doctorsApp\templates\doctorsApp\summary.html:212
+msgid "Autocuidado: ducha"
+msgstr "Self-care: shower"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:7
+msgid "Lista de pacientes"
+msgstr "Patient list"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:23
+msgid "Profesional"
+msgstr "Professional"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:28
+msgid "Ayer"
+msgstr "Yesterday"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:54
+msgid "Semana pasada"
+msgstr "Last week"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:80
+msgid "Mes pasado"
+msgstr "Last month"
+
+#: .\doctorsApp\templates\doctorsApp\main.html:106
+msgid "Resumen"
+msgstr "Summary"
+
+#: .\doctorsApp\templates\doctorsApp\summary.html:14
+msgid "Cumplimiento del contrato terapéutico por día"
+msgstr "Compliance with the therapeutic contract by day"
+
+#: .\doctorsApp\templates\doctorsApp\summary.html:15
+msgid "Fecha del resumen"
+msgstr "Date of summary"
+
+#: .\doctorsApp\templates\doctorsApp\summary.html:32
+msgid "Realizado"
+msgstr "Done"
+
+#: .\doctorsApp\templates\doctorsApp\summary.html:35
+msgid "Horario"
+msgstr "Schedule"
+
+#: .\doctorsApp\templates\doctorsApp\summary_custom.html:14
+msgid "Cumplimiento del contrato terapéutico por rango"
+msgstr "Compliance with the therapeutic contract by range"
+
+#: .\doctorsApp\templates\doctorsApp\summary_month.html:14
+msgid "Cumplimiento del contrato terapéutico por mes"
+msgstr "Compliance with the therapeutic contract per month"
+
+#: .\doctorsApp\templates\doctorsApp\summary_month.html:15
+msgid "Mes del resumen"
+msgstr "Date of summary"
+
+#: .\doctorsApp\templates\doctorsApp\summary_week.html:14
+msgid "Cumplimiento del contrato terapéutico por semana"
+msgstr "Compliance with the therapeutic contract per week"
+
+#: .\doctorsApp\templates\doctorsApp\summary_week.html:15
+msgid "Semana del resumen"
+msgstr "Week of summary"
+
+#: .\doctorsApp\views.py:122
+msgid "Método no permitido"
+msgstr "Method not allowed"
+
+#: .\doctorsApp\views.py:123
+msgid "El método POST no está permitido en esta página."
+msgstr "The POST method is not allowed on this page."
+
+#: .\doctorsApp\views.py:159 .\doctorsApp\views.py:172
+#: .\doctorsApp\views.py:185 .\doctorsApp\views.py:205
+msgid "Formato de fecha incorrecto"
+msgstr "Date format incorrect"
+
+#: .\doctorsApp\views.py:433
+msgid "Error al guardar los datos"
+msgstr "Error while saving data"
+
+#: .\doctorsApp\views.py:445
+msgid "Error en los datos"
+msgstr "Error in request data"
+
+#: .\otriSite\settings\base.py:152
+msgid "Español"
+msgstr "Spanish"
+
+#: .\otriSite\settings\base.py:153
+msgid "English"
+msgstr "English"
+
+#: .\startPage\templates\startPage\home.html:10
+msgid "Aplicación de gestión"
+msgstr "Management application"
+
+#: .\startPage\templates\startPage\home.html:18
+#: .\startPage\templates\startPage\home.html:33
+#: .\startPage\templates\startPage\home.html:51
+msgid "Iniciar"
+msgstr "Start"
+
+#: .\startPage\templates\startPage\home.html:25
+msgid "Aplicación de administración"
+msgstr "Administration application"
+
+#: .\startPage\templates\startPage\home.html:41
+msgid "Aplicación de seguimiento"
+msgstr "Monitoring application"
+
+#: .\startPage\templates\startPage\layouts\base-login.html:39
+msgid "Contacto:"
+msgstr "Contact:"
+
+#: .\startPage\templates\startPage\login.html:11
+#: .\startPage\templates\startPage\login.html:24
+msgid "Iniciar sesión"
+msgstr "Login"
+
+#: .\startPage\views.py:38
+msgid "Usuario o contraseña incorrectos"
+msgstr "User or password incorrect"
+
+#: .\startPage\views.py:61
+msgid "Error de inicio de sesión"
+msgstr "Login error"
+
+#: .\startPage\views.py:62
+msgid ""
+"Has superado el número de intentos de inicio de "
+"sesión.                         Contacta con el administrador para "
+"desbloquear tu cuenta"
+msgstr ""
+"You have exceeded the number of login attempts. Contact the administrator to "
+"unlock your account"
+
+#~ msgid "Solo se aceptan peticiones GET"
+#~ msgstr "Only GET requests are accepted"
+
+#~ msgid "Las contraseñas no coinciden."
+#~ msgstr "Passwords do not match."
+
+#~ msgid ""
+#~ "El paciente acuerda con los profesionales sanitarios de referencia "
+#~ "realizar las actividade descritas a continuación, en la medida de sus "
+#~ "posibilidades "
+#~ msgstr ""
+#~ "The patient agrees with the referring health care professionals to "
+#~ "perform the activities described below, in the measure of their "
+#~ "possibilities"

@@ -1,0 +1,29 @@
+{% extends "startPage/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<!--Create 403 html page-->
+
+<div class="container pt-5">
+    <div class="card">
+        <div class="card-header">
+          <h4>{{error_code}}</h4>
+        </div>
+        <div class="card-body">
+            <div class = "row">
+                <div class = "col-lg-2" style="text-align: center;">
+                    <i class="fa-solid fa-triangle-exclamation fa-8x" style = "color:#dc3545"></i>
+                </div>
+                <div class = "col-md-8">
+                    <h5 class="card-title">{{error_title}}</h5>
+                    <p class="card-text">{{error_description}}</p>
+                    <a href="{% url 'startPage:home' %}"class="btn btn-primary">{%trans 'Volver'%}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

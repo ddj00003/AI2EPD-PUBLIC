@@ -1,0 +1,141 @@
+{% extends "adminManager/layouts/base.html" %}
+{% load i18n %}
+{% block content %}
+<main class ="container py-5">
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Viviendas'%}</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>{%trans 'Nombre'%}</th>
+                            <th>{%trans 'Mac'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle">
+                        {% for house in houses %}
+                        <tr>
+                            <td>{{ house.id }}</td>
+                            <td>{{ house.name }}</td>
+                            <td>{{ house.mac_node }}</td>
+                            <td>{{ house.description }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Sensores'%}</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>{%trans 'Id vivienda'%}</th>
+                            <th>{%trans 'Nombre'%}</th>
+                            <th>{%trans 'Tipo'%}</th>
+                            <th>{%trans 'Dirección ieee'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle"> 
+                        {% for sensor in sensors %}
+                        <tr></tr>
+                            <td>{{sensor.id}}</td>
+                            <td>{{sensor.id_house}}</td>
+                            <td>{{sensor.name}}</td>
+                            <td>{{sensor.type}}</td>
+                            <td>{{sensor.ieee_address}}</td>
+                            <td>{{sensor.description}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Pulseras'%}</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>{%trans 'Id vivienda'%}</th>
+                            <th>{%trans 'Nombre'%}</th>
+                            <th>{%trans 'Mac'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle"> 
+                        {% for wristband in wristbands %}
+                        <tr></tr>
+                            <td>{{wristband.id}}</td>
+                            <td>{{wristband.id_house}}</td>
+                            <td>{{wristband.name}}</td>
+                            <td>{{wristband.mac}}</td>
+                            <td>{{wristband.description}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class ="card">
+        <div class="card-header ">
+            <h1>{%trans 'Anclas'%}</h1>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>{%trans 'Id vivienda'%}</th>
+                            <th>{%trans 'Nombre'%}</th>
+                            <th>{%trans 'Mac'%}</th>
+                            <th>{%trans 'Descripción'%}</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider align-middle">
+                        {% for anchor in anchors %}
+                        <tr>
+                            <td>{{anchor.id}}</td>
+                            <td>{{anchor.id_house}}</td>
+                            <td>{{anchor.name}}</td>
+                            <td>{{anchor.mac}}</td>
+                            <td>{{anchor.description}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

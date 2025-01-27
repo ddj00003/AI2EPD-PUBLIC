@@ -1,0 +1,18 @@
+services:
+
+  django_app:
+    build: 
+      context: ./django
+    expose:
+      - "8000"
+    volumes:
+      - ./django:/SisCAH_app
+      - ./static:/static
+    restart: unless-stopped
+    networks:
+      red-dockers:
+        ipv4_address: 192.168.48.14
+
+networks:
+  red-dockers:
+    external: true
